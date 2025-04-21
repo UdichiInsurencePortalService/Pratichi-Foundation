@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 const pricingPlans = [
   {
@@ -89,7 +90,9 @@ const Pricing= () => {
                   </ul>
                 </Card.Body>
                 <Card.Footer className="text-center">
-                  <Button href='/donation' variant={plan.active ? 'primary' : 'outline-primary'}>Book Now</Button>
+                <Link to='/donation'>
+                  <Button  variant={plan.active ? 'primary' : 'outline-primary'}>Book Now</Button>
+                  </Link>
                 </Card.Footer>
               </Card>
             </Col>

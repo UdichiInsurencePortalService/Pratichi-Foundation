@@ -104,7 +104,7 @@ const Home = () => {
         <Card className="border-0 shadow-lg my-5 overflow-hidden">
           {/* Header Banner */}
           <div className=" text-white p-4 p-md-5" style={{backgroundColor:'#09cc7f'}}>
-            <h2 className="display-5 fw-bold">🏠 Ananda Shanti Niketan</h2>
+            <h2 className="display-5 fw-bold">🏠 Ananda Kanan</h2>
             <p className="lead mb-0 text-black fw-bold">
               Where Every Sunset Glows with Peace and Dignity
             </p>
@@ -115,11 +115,11 @@ const Home = () => {
               {/* Left Content Column */}
               <Col lg={6} className="mb-4 mb-lg-0">
                 <h3 className=" mb-4" style={{Color:'#09cc7f'}}>
-                  Welcome to Ananda Shanti Niketan,
+                  Welcome to Ananda Kanan,
                 </h3>
 
                 <p className="mb-4">
-                  At Ananda Shanti Niketan, each day begins with gentle smiles,
+                  At Ananda Kanan, each day begins with gentle smiles,
                   nurturing care, and the quiet assurance that our residents are
                   cherished. Our holistic approach ensures physical well-being,
                   emotional comfort, and mental stimulation through personalized

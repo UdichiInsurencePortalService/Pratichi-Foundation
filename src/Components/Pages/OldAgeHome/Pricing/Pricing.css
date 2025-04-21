@@ -1,0 +1,169 @@
+#generic_price_table {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
+    overflow: hidden;
+  
+    padding-top: 30px;
+  }
+  
+  .price-heading {
+    text-align: center;
+    padding: 30px 0;
+    /* background: #4e54c8; */
+    /* background: linear-gradient(to right, #4e54c8, #8f94fb); */
+    color: white;
+  }
+  
+  .price-heading h1 {
+    font-size: 32px;
+    margin: 0;
+    padding: 0 15px;
+    font-weight: 600;
+  }
+  
+  .container {
+    width: 100%;
+    padding: 0 15px;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+  }
+  
+  .col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+  }
+  
+  .generic_content {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .generic_content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .generic_head_price {
+    background: #f6f6f6;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .generic_head_content .head {
+    padding: 10px 0;
+  }
+  
+  .generic_head_content .head span {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    padding: 0 10px;
+  }
+  
+  .generic_price_tag {
+    padding: 15px 0;
+  }
+  
+  .price_details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .price_title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .price_value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4e54c8;
+    margin-bottom: 5px;
+  }
+  
+  .price_subtitle {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .generic_feature_list {
+    padding: 25px 0;
+    flex: 1;
+  }
+  
+  .generic_feature_list ul {
+    list-style: none;
+    padding: 0 25px;
+  }
+  
+  .generic_feature_list ul li {
+    padding: 12px 0;
+    font-size: 16px;
+    color: #555;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+  }
+  
+  .generic_feature_list ul li span {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .generic_price_btn {
+    padding: 20px 0 40px;
+    text-align: center;
+  }
+  
+  .generic_price_btn a {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #4e54c8;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .generic_price_btn a:hover {
+    background: #8f94fb;
+    transform: scale(1.05);
+  }
+  
+  .active .generic_head_price {
+    background: #4e54c8;
+    background: linear-gradient(to right, #4e54c8, #8f94fb);
+  }
+  
+  .active .generic_head_content .head span {
+    color: white;
+  }
+  
+  .active .price_value {
+    color: #fff;
+  }
+  
+  .active .price_title, .active .price_subtitle {
+    color: #f0f0f0;
+  }
+  

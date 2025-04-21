@@ -1,0 +1,157 @@
+/* General Reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+  
+  .main-header {
+	position: sticky;
+	top: 0;
+	background: white;
+	z-index: 999;
+	transition: all 0.3s ease-in-out;
+	padding: 0.75rem 5rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .main-header.hidden {
+	transform: translateY(-100%);
+  }
+  
+  .main-header.scrolled {
+	background-color: #fff;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-logo img {
+	max-width: 90px;
+	height: auto;
+  }
+  
+  .nav-links .menu {
+	display: flex;
+	gap: 2.7rem;
+	list-style: none;
+	margin-bottom: 0;
+  }
+  
+  .nav-links a,
+  .nav-links span {
+	color: #000;
+	text-decoration: none;
+	font-weight: 500;
+	cursor: pointer;
+	position: relative;
+  }
+  
+  .nav-links .dropdown {
+	position: relative;
+  }
+  
+  .nav-links .dropdown-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background: #fff;
+	list-style: none;
+	padding: 1rem;
+	display: none;
+	min-width: 200px;
+	border-radius: 6px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-links .dropdown:hover .dropdown-menu {
+	display: block;
+  }
+  
+  .nav-links .dropdown-menu li {
+	margin-bottom: 0.5rem;
+  }
+  
+  .nav-links .dropdown-menu li:last-child {
+	margin-bottom: 0;
+  }
+  
+  /* Hamburger */
+  .menu-toggle {
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+  }
+  
+  .bar {
+	height: 3px;
+	width: 25px;
+	background: #000;
+	margin: 4px 0;
+	border-radius: 2px;
+  }
+  
+  /* Mobile Nav */
+  .mobile-nav {
+	position: fixed;
+	top: 0;
+	right: -100%;
+	width: 80%;
+	height: 100%;
+	background: #fff;
+	padding: 2rem 1.5rem;
+	box-shadow: -2px 0 6px rgba(0, 0, 0, 0.15);
+	transition: right 0.3s ease-in-out;
+	z-index: 1001;
+  }
+  
+  .mobile-nav.open {
+	right: 0;
+  }
+  
+  .mobile-nav ul {
+	list-style: none;
+	padding: 0;
+  }
+  
+  .mobile-nav li {
+	margin-bottom: 1rem;
+  }
+  
+  .mobile-nav a {
+	color: #000;
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 500;
+  }
+  
+  .mobile-dropdown-toggle {
+	background: none;
+	border: none;
+	font-size: 1rem;
+	font-weight: 500;
+	color: #000;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0;
+  }
+  
+  .mobile-submenu {
+	padding-left: 1rem;
+	margin-top: 0.5rem;
+  }
+  
+  .mobile-submenu li {
+	margin-bottom: 0.5rem;
+  }
+  
+  /* Responsive Fix */
+  @media (min-width: 992px) {
+	.menu-toggle {
+	  display: none;
+	}
+  
+	.mobile-nav {
+	  display: none;
+	}
+  }
+  

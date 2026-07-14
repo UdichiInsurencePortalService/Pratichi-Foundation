@@ -1,169 +1,474 @@
-#generic_price_table {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: #fff;
-    border-radius: 10px;
-    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
-    overflow: hidden;
-  
-    padding-top: 30px;
+/* ==========================================================================
+   Pricing.css
+   Premium, NGO-grade styling for the Pricing & Facilities-details sections.
+   Uses the same design language as Facilities.css so the two pages read as
+   one consistent site. Everything is namespaced under .pricing-section /
+   .pricing-details-section so nothing leaks into other pages.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+/* --------------------------------------------------------------------------
+   Design tokens (mirrors Facilities.css)
+   -------------------------------------------------------------------------- */
+.pricing-section,
+.pricing-details-section {
+  --pf-navy: #072366;
+  --pf-navy-dark: #051a4d;
+  --pf-navy-soft: rgba(7, 35, 102, 0.08);
+  --pf-gold: #c9962f;
+  --pf-gold-light: #f4e6c4;
+  --pf-sage: #3f7a52;
+  --pf-teal: #2c6b74;
+  --pf-rose: #a13a4c;
+  --pf-cream: #faf8f3;
+  --pf-white: #ffffff;
+  --pf-text: #1f2a44;
+  --pf-text-muted: #64708a;
+  --pf-border: #e7e3d8;
+  --pf-shadow-sm: 0 4px 14px rgba(7, 35, 102, 0.06);
+  --pf-shadow-md: 0 14px 34px rgba(7, 35, 102, 0.12);
+  --pf-shadow-lg: 0 24px 48px rgba(7, 35, 102, 0.16);
+  --pf-radius: 16px;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--pf-text);
+}
+
+/* --------------------------------------------------------------------------
+   Scroll-reveal
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
-  
-  .price-heading {
-    text-align: center;
-    padding: 30px 0;
-    /* background: #4e54c8; */
-    /* background: linear-gradient(to right, #4e54c8, #8f94fb); */
-    color: white;
+}
+
+/* --------------------------------------------------------------------------
+   Pricing section
+   -------------------------------------------------------------------------- */
+#generic_price_table.pricing-section {
+  position: relative;
+  max-width: none;
+  background:
+    radial-gradient(circle at 86% 6%, rgba(201, 150, 47, 0.08), transparent 42%),
+    linear-gradient(180deg, #f6f7fb 0%, #ffffff 55%, #f6f7fb 100%);
+  overflow: hidden;
+  padding-top: 40px;
+}
+
+.pricing-bg-accent {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(7, 35, 102, 0.05) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 0%, transparent 75%);
+  opacity: 0.6;
+}
+
+.pricing-eyebrow {
+  display: inline-block;
+  padding: 6px 18px;
+  margin-bottom: 18px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pf-navy);
+  background: var(--pf-gold-light);
+  border: 1px solid rgba(201, 150, 47, 0.35);
+  border-radius: 999px;
+}
+
+.pricing-title {
+  position: relative;
+  z-index: 1;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.4rem;
+  line-height: 1.25;
+  color: var(--pf-navy);
+  font-weight: 700;
+  max-width: 880px;
+  margin: 0 auto 18px;
+  letter-spacing: -0.01em;
+}
+
+.pricing-title-underline {
+  position: relative;
+  height: 3px;
+  width: 90px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, var(--pf-navy), var(--pf-gold));
+  border-radius: 3px;
+}
+
+.pricing-title-underline::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  background: var(--pf-gold);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .pricing-title {
+    font-size: 1.6rem;
   }
-  
-  .price-heading h1 {
-    font-size: 32px;
-    margin: 0;
-    padding: 0 15px;
-    font-weight: 600;
+}
+
+/* Pricing cards */
+.pricing-card {
+  position: relative;
+  z-index: 1;
+  border: 1px solid var(--pf-border) !important;
+  border-radius: var(--pf-radius);
+  overflow: visible;
+  background: var(--pf-white);
+  box-shadow: var(--pf-shadow-sm);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--pf-shadow-lg);
+  border-color: rgba(201, 150, 47, 0.4) !important;
+}
+
+.pricing-card__header {
+  background: #f7f6f2;
+  border-bottom: 1px solid var(--pf-border);
+  padding: 28px 20px 20px;
+  border-radius: var(--pf-radius) var(--pf-radius) 0 0;
+  transition: background 0.35s ease;
+}
+
+.pricing-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, var(--pf-navy-soft), rgba(201, 150, 47, 0.14));
+  color: var(--pf-navy);
+  font-size: 1.35rem;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing-card:hover .pricing-card__icon {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.pricing-card__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  color: var(--pf-navy);
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.pricing-card__body {
+  padding: 26px 24px 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card__subtitle {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--pf-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+.pricing-card__price {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--pf-navy);
+  margin-bottom: 2px;
+}
+
+.pricing-card__desc {
+  font-size: 0.85rem;
+  color: var(--pf-text-muted);
+  margin-bottom: 0;
+}
+
+.pricing-feature-list {
+  padding: 0;
+  margin: 22px 0 0;
+  text-align: left;
+}
+
+.pricing-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 0.92rem;
+  color: var(--pf-text);
+  border-bottom: 1px solid var(--pf-border);
+  line-height: 1.5;
+}
+
+.pricing-feature-list li:last-child {
+  border-bottom: none;
+}
+
+.pricing-feature-icon {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--pf-gold);
+  font-size: 0.95rem;
+}
+
+.pricing-card__footer {
+  background: transparent;
+  border-top: none;
+  padding: 20px 24px 30px;
+}
+
+.pricing-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 32px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease;
+}
+
+.pricing-card:not(.pricing-card--active) .pricing-cta-btn {
+  color: var(--pf-navy);
+  border-color: var(--pf-navy);
+  background: transparent;
+}
+
+.pricing-card:not(.pricing-card--active) .pricing-cta-btn:hover {
+  background: var(--pf-navy);
+  border-color: var(--pf-navy);
+  color: var(--pf-white);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(7, 35, 102, 0.22);
+}
+
+.pricing-card--active .pricing-cta-btn {
+  background: linear-gradient(135deg, var(--pf-navy), var(--pf-navy-dark));
+  border: none;
+  box-shadow: var(--pf-shadow-sm);
+}
+
+.pricing-card--active .pricing-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(7, 35, 102, 0.28);
+}
+
+/* Highlighted "Most Popular" plan */
+.pricing-card--active {
+  border-color: var(--pf-gold) !important;
+  box-shadow: var(--pf-shadow-md);
+}
+
+.pricing-card--active .pricing-card__header {
+  background: linear-gradient(135deg, var(--pf-navy), var(--pf-navy-dark));
+  border-bottom: none;
+}
+
+.pricing-card--active .pricing-card__icon {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--pf-gold-light);
+}
+
+.pricing-card--active .pricing-card__title {
+  color: var(--pf-white);
+}
+
+@media (min-width: 992px) {
+  .pricing-card--active {
+    transform: translateY(-14px);
   }
-  
-  .container {
-    width: 100%;
-    padding: 0 15px;
+
+  .pricing-card--active:hover {
+    transform: translateY(-20px);
   }
-  
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -15px;
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 6px 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pf-navy-dark);
+  background: linear-gradient(135deg, var(--pf-gold-light), var(--pf-gold));
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(201, 150, 47, 0.35);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Facilities & services details section
+   -------------------------------------------------------------------------- */
+.pricing-details-section {
+  background: var(--pf-cream);
+}
+
+.pricing-details-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--pf-navy);
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+}
+
+.pricing-info-card {
+  position: relative;
+  border: 1px solid var(--pf-border) !important;
+  border-radius: var(--pf-radius) !important;
+  background: var(--pf-white);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing-info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--pf-navy), var(--pf-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing-info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--pf-shadow-md) !important;
+}
+
+.pricing-info-card:hover::before {
+  transform: scaleX(1);
+}
+
+.pricing-info-card--gold::before {
+  background: linear-gradient(90deg, var(--pf-gold), var(--pf-navy));
+}
+
+.pricing-info-card--rose::before {
+  background: linear-gradient(90deg, var(--pf-rose), var(--pf-gold));
+}
+
+.pricing-info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  background: var(--pf-navy-soft);
+  color: var(--pf-navy);
+  font-size: 1.2rem;
+}
+
+.pricing-info-card--gold .pricing-info-icon {
+  background: rgba(201, 150, 47, 0.14);
+  color: var(--pf-gold);
+}
+
+.pricing-info-card--rose .pricing-info-icon {
+  background: rgba(161, 58, 76, 0.12);
+  color: var(--pf-rose);
+}
+
+.pricing-info-card .card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--pf-navy);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.pricing-info-list li {
+  padding: 9px 0;
+  font-size: 0.94rem;
+  color: var(--pf-text);
+  border-bottom: 1px solid var(--pf-border);
+  line-height: 1.5;
+}
+
+.pricing-info-list li:last-child {
+  border-bottom: none;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive refinements
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .pricing-card--active {
+    transform: none;
   }
-  
-  .col-md-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
-    padding: 0 15px;
-    margin-bottom: 30px;
+
+  .pricing-card__body {
+    padding: 22px 20px 6px;
   }
-  
-  .generic_content {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+}
+
+@media (max-width: 575px) {
+  .pricing-title {
+    font-size: 1.4rem;
   }
-  
-  .generic_content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+
+  .pricing-eyebrow {
+    font-size: 0.7rem;
+    padding: 5px 14px;
   }
-  
-  .generic_head_price {
-    background: #f6f6f6;
-    padding: 20px 0;
-    text-align: center;
+
+  .pricing-card__price {
+    font-size: 1.8rem;
   }
-  
-  .generic_head_content .head {
-    padding: 10px 0;
+
+  .pricing-cta-btn {
+    padding: 10px 26px;
+    font-size: 0.9rem;
   }
-  
-  .generic_head_content .head span {
-    font-size: 22px;
-    font-weight: 600;
-    color: #333;
-    display: block;
-    padding: 0 10px;
+
+  .pricing-badge {
+    font-size: 0.66rem;
+    padding: 5px 16px;
   }
-  
-  .generic_price_tag {
-    padding: 15px 0;
-  }
-  
-  .price_details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
-  
-  .price_title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #555;
-    margin-bottom: 5px;
-  }
-  
-  .price_value {
-    font-size: 24px;
-    font-weight: 700;
-    color: #4e54c8;
-    margin-bottom: 5px;
-  }
-  
-  .price_subtitle {
-    font-size: 14px;
-    color: #777;
-  }
-  
-  .generic_feature_list {
-    padding: 25px 0;
-    flex: 1;
-  }
-  
-  .generic_feature_list ul {
-    list-style: none;
-    padding: 0 25px;
-  }
-  
-  .generic_feature_list ul li {
-    padding: 12px 0;
-    font-size: 16px;
-    color: #555;
-    border-bottom: 1px solid #f0f0f0;
-    position: relative;
-  }
-  
-  .generic_feature_list ul li span {
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .generic_price_btn {
-    padding: 20px 0 40px;
-    text-align: center;
-  }
-  
-  .generic_price_btn a {
-    display: inline-block;
-    padding: 12px 30px;
-    background: #4e54c8;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-  
-  .generic_price_btn a:hover {
-    background: #8f94fb;
-    transform: scale(1.05);
-  }
-  
-  .active .generic_head_price {
-    background: #4e54c8;
-    background: linear-gradient(to right, #4e54c8, #8f94fb);
-  }
-  
-  .active .generic_head_content .head span {
-    color: white;
-  }
-  
-  .active .price_value {
-    color: #fff;
-  }
-  
-  .active .price_title, .active .price_subtitle {
-    color: #f0f0f0;
-  }
-  
+}

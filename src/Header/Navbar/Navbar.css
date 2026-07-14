@@ -1,157 +1,510 @@
-/* General Reset */
-* {
-	margin: 0;
-	padding: 0;
+	/* =========================================================
+	Pratichi Foundation — Navbar
+	Shares the emerald / marigold identity used on the homepage.
+	========================================================= */
+
+	.pf-navbar {
+	--pf-green: #0e7a54;
+	--pf-green-dark: #0a5940;
+	--pf-green-deepest: #0c2b22;
+	--pf-gold: #dc9f34;
+	--pf-ink: #16231f;
+	--pf-ink-soft: #57685f;
+	--pf-line: rgba(22, 35, 31, 0.1);
+	--pf-shadow: 0 12px 30px -14px rgba(12, 35, 26, 0.3);
+	--pf-ease: cubic-bezier(0.22, 1, 0.36, 1);
+	font-family: "Public Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+	position: relative;
+	z-index: 1000;
+	}
+
+	.pf-navbar *,
+	.pf-navbar *::before,
+	.pf-navbar *::after {
 	box-sizing: border-box;
-  }
-  
-  .main-header {
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+	.pf-navbar * {
+		transition-duration: 0.001ms !important;
+		animation-duration: 0.001ms !important;
+	}
+	}
+
+	/* ================= HEADER ================= */
+	.main-header {
 	position: sticky;
 	top: 0;
-	background: white;
+	background: #fff;
 	z-index: 999;
-	transition: all 0.3s ease-in-out;
-	padding: 0.75rem 5rem;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  .main-header.hidden {
+	padding: 16px 5%;
+	border-bottom: 1px solid transparent;
+	transition: padding 0.3s var(--pf-ease), box-shadow 0.3s var(--pf-ease),
+		border-color 0.3s var(--pf-ease), transform 0.3s var(--pf-ease);
+	}
+
+	.main-header.scrolled {
+	padding: 10px 5%;
+	box-shadow: var(--pf-shadow);
+	border-bottom-color: var(--pf-line);
+	}
+
+	.main-header.hidden {
 	transform: translateY(-100%);
-  }
-  
-  .main-header.scrolled {
-	background-color: #fff;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar-logo img {
-	max-width: 90px;
-	height: auto;
-  }
-  
-  .nav-links .menu {
+	}
+
+	.pf-navbar__inner {
 	display: flex;
-	gap: 2.7rem;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	max-width: 1320px;
+	margin: 0 auto;
+	}
+
+	/* ================= LOGO ================= */
+	.navbar-logo {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	}
+
+	.navbar-logo img {
+	width: 84px;
+	height: 56px;
+	object-fit: contain;
+	display: block;
+	transition: transform 0.3s var(--pf-ease);
+	}
+
+	.main-header.scrolled .navbar-logo img {
+	width: 68px;
+	height: 46px;
+	}
+
+	/* ================= DESKTOP NAV ================= */
+	.nav-links {
+	flex: 1;
+	justify-content: center;
+	}
+
+	.nav-links .menu {
+	display: flex;
+	align-items: center;
+	gap: 2.2rem;
 	list-style: none;
-	margin-bottom: 0;
-  }
-  
-  .nav-links a,
-  .nav-links span {
-	color: #000;
+	margin: 0;
+	padding: 0;
+	}
+
+	.nav-links > .menu > li {
+	position: relative;
+	}
+
+	.nav-links a,
+	.nav-links .pf-dropdown-trigger {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: var(--pf-ink);
 	text-decoration: none;
-	font-weight: 500;
+	font-weight: 600;
+	font-size: 0.95rem;
+	letter-spacing: 0.01em;
 	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 8px 2px;
 	position: relative;
-  }
-  
-  .nav-links .dropdown {
+	}
+
+	.nav-links > .menu > li > a::after,
+	.nav-links .pf-dropdown-trigger::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, var(--pf-green), var(--pf-gold));
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.3s var(--pf-ease);
+	}
+
+	.nav-links > .menu > li > a:hover,
+	.nav-links .pf-dropdown-trigger:hover {
+	color: var(--pf-green-dark);
+	}
+
+	.nav-links > .menu > li > a:hover::after,
+	.nav-links .pf-dropdown-trigger:hover::after,
+	.nav-links > .menu > li > a.is-active::after,
+	.nav-links .pf-dropdown.is-active > .pf-dropdown-trigger::after {
+	transform: scaleX(1);
+	}
+
+	.nav-links > .menu > li > a.is-active,
+	.nav-links .pf-dropdown.is-active > .pf-dropdown-trigger {
+	color: var(--pf-green-dark);
+	}
+
+	.pf-dropdown-chevron {
+	transition: transform 0.25s var(--pf-ease);
+	}
+
+	.pf-dropdown.active .pf-dropdown-chevron,
+	.pf-dropdown:hover .pf-dropdown-chevron {
+	transform: rotate(180deg);
+	}
+
+	/* ---- Dropdown panel ----
+	NOTE: these are intentionally named .pf-dropdown / .pf-dropdown-menu
+	(not Bootstrap's .dropdown / .dropdown-menu). Bootstrap's own
+	stylesheet ships `.dropdown-menu { display: none; }`, only switched
+	to `display: block` via a `.show` class its JS adds. Since this
+	project imports the full Bootstrap CSS, reusing that class name
+	silently forced our menu to stay display:none no matter what
+	opacity/visibility we set — that was the actual bug. */
+	.pf-dropdown {
 	position: relative;
-  }
-  
-  .nav-links .dropdown-menu {
+	}
+
+	/* Outer box: starts flush at the trigger's bottom edge (top: 100%,
+	no gap) and uses padding-top purely to create the visual gap. Because
+	the padding is still part of this element's own box, hovering through
+	that gap keeps :hover matching the whole time — no dead zone, no
+	flicker while moving the cursor from the trigger into the panel. */
+	.pf-dropdown-menu {
 	position: absolute;
 	top: 100%;
-	left: 0;
+	left: 50%;
+	width: max-content;
+	min-width: 220px;
+	padding-top: 14px;
+	transform: translate(-50%, 4px);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	z-index: 1100;
+	transition: opacity 0.2s var(--pf-ease), transform 0.2s var(--pf-ease),
+		visibility 0s linear 0.2s, pointer-events 0s linear 0.2s;
+	}
+
+	.pf-dropdown-menu__panel {
+	position: relative;
 	background: #fff;
+	padding: 10px;
+	border-radius: 14px;
+	border: 1px solid var(--pf-line);
+	box-shadow: var(--pf-shadow);
+	}
+
+	.pf-dropdown-menu__panel::before {
+	content: "";
+	position: absolute;
+	top: -6px;
+	left: 50%;
+	transform: translateX(-50%) rotate(45deg);
+	width: 12px;
+	height: 12px;
+	background: #fff;
+	border-left: 1px solid var(--pf-line);
+	border-top: 1px solid var(--pf-line);
+	border-radius: 3px 0 0 0;
+	}
+
+	.pf-dropdown-menu__list {
 	list-style: none;
-	padding: 1rem;
-	display: none;
-	min-width: 200px;
-	border-radius: 6px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-links .dropdown:hover .dropdown-menu {
+	margin: 0;
+	padding: 0;
+	}
+
+	.pf-dropdown-menu__list li a {
 	display: block;
-  }
-  
-  .nav-links .dropdown-menu li {
-	margin-bottom: 0.5rem;
-  }
-  
-  .nav-links .dropdown-menu li:last-child {
-	margin-bottom: 0;
-  }
-  
-  /* Hamburger */
-  .menu-toggle {
+	padding: 10px 14px;
+	border-radius: 8px;
+	font-size: 0.9rem;
+	font-weight: 500;
+	color: var(--pf-ink-soft);
+	white-space: nowrap;
+	transition: background 0.2s var(--pf-ease), color 0.2s var(--pf-ease);
+	}
+
+	.pf-dropdown-menu__list li a:hover,
+	.pf-dropdown-menu__list li a.is-active {
+	background: rgba(14, 122, 84, 0.08);
+	color: var(--pf-green-dark);
+	}
+
+	/* Show on hover for pointer devices, or via the .active state class
+	(click/keyboard) so touch and non-hover devices work too. Visibility
+	and pointer-events switch to visible instantly on open (0s delay)
+	but wait for the fade-out to finish before switching back to hidden
+	on close, so a brief, fast mouse movement never causes a flicker. */
+	@media (hover: hover) {
+	.pf-dropdown:hover .pf-dropdown-menu {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+		transform: translate(-50%, 0);
+		transition: opacity 0.2s var(--pf-ease), transform 0.2s var(--pf-ease),
+		visibility 0s, pointer-events 0s;
+	}
+	}
+
+	.pf-dropdown.active .pf-dropdown-menu {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transform: translate(-50%, 0);
+	transition: opacity 0.2s var(--pf-ease), transform 0.2s var(--pf-ease),
+		visibility 0s, pointer-events 0s;
+	}
+
+	/* ================= ACTIONS / CTA ================= */
+	.pf-navbar__actions {
 	display: flex;
-	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+	flex-shrink: 0;
+	}
+
+	.pf-nav-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	background: linear-gradient(135deg, var(--pf-green), var(--pf-green-dark));
+	color: #fff;
+	font-weight: 700;
+	font-size: 0.88rem;
+	padding: 10px 22px;
+	border-radius: 999px;
+	text-decoration: none;
+	box-shadow: 0 10px 22px -10px rgba(14, 122, 84, 0.55);
+	transition: transform 0.25s var(--pf-ease), box-shadow 0.25s var(--pf-ease);
+	}
+
+	.pf-nav-cta:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 14px 26px -10px rgba(14, 122, 84, 0.65);
+	color: #fff;
+	}
+
+	.pf-nav-cta--block {
+	width: 100%;
+	justify-content: center;
+	margin-top: 20px;
+	}
+
+	/* ================= HAMBURGER ================= */
+	.menu-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	border: 1px solid var(--pf-line);
+	background: #fff;
+	color: var(--pf-ink);
 	cursor: pointer;
-  }
-  
-  .bar {
-	height: 3px;
-	width: 25px;
-	background: #000;
-	margin: 4px 0;
-	border-radius: 2px;
-  }
-  
-  /* Mobile Nav */
-  .mobile-nav {
+	transition: background 0.25s var(--pf-ease), transform 0.25s var(--pf-ease);
+	}
+
+	.menu-toggle:hover {
+	background: rgba(14, 122, 84, 0.08);
+	}
+
+	.menu-toggle.open {
+	transform: rotate(90deg);
+	}
+
+	/* ================= BACKDROP ================= */
+	.pf-nav-backdrop {
+	position: fixed;
+	inset: 0;
+	background: rgba(12, 35, 26, 0.45);
+	backdrop-filter: blur(2px);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s var(--pf-ease), visibility 0.3s;
+	z-index: 1000;
+	}
+
+	.pf-nav-backdrop.show {
+	opacity: 1;
+	visibility: visible;
+	}
+
+	/* ================= MOBILE DRAWER ================= */
+	.mobile-nav {
 	position: fixed;
 	top: 0;
 	right: -100%;
-	width: 80%;
+	width: min(360px, 86vw);
 	height: 100%;
 	background: #fff;
-	padding: 2rem 1.5rem;
-	box-shadow: -2px 0 6px rgba(0, 0, 0, 0.15);
-	transition: right 0.3s ease-in-out;
+	padding: 20px 22px 28px;
+	box-shadow: -18px 0 40px -20px rgba(12, 35, 26, 0.35);
+	transition: right 0.35s var(--pf-ease);
 	z-index: 1001;
-  }
-  
-  .mobile-nav.open {
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	}
+
+	.mobile-nav.open {
 	right: 0;
-  }
-  
-  .mobile-nav ul {
+	}
+
+	.mobile-nav__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 18px;
+	margin-bottom: 12px;
+	border-bottom: 1px solid var(--pf-line);
+	}
+
+	.mobile-nav__close {
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	border: 1px solid var(--pf-line);
+	background: #fff;
+	color: var(--pf-ink);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: background 0.25s var(--pf-ease);
+	}
+
+	.mobile-nav__close:hover {
+	background: rgba(14, 122, 84, 0.08);
+	}
+
+	.mobile-nav__list {
 	list-style: none;
+	margin: 0;
 	padding: 0;
-  }
-  
-  .mobile-nav li {
-	margin-bottom: 1rem;
-  }
-  
-  .mobile-nav a {
-	color: #000;
+	flex: 1;
+	}
+
+	.mobile-nav__list > li {
+	border-bottom: 1px solid var(--pf-line);
+	}
+
+	.mobile-nav__list > li > a {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 14px 4px;
+	color: var(--pf-ink);
 	text-decoration: none;
-	font-size: 1rem;
-	font-weight: 500;
-  }
-  
-  .mobile-dropdown-toggle {
+	font-weight: 600;
+	font-size: 0.98rem;
+	transition: color 0.2s var(--pf-ease);
+	}
+
+	.mobile-nav__list > li.is-active > a,
+	.mobile-nav__list > li.is-active .mobile-dropdown-toggle__label {
+	color: var(--pf-green-dark);
+	}
+
+	.mobile-nav__list > li > a:hover {
+	color: var(--pf-green-dark);
+	}
+
+	.mobile-dropdown-toggle {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	background: none;
 	border: none;
-	font-size: 1rem;
-	font-weight: 500;
-	color: #000;
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
+	padding: 14px 4px;
+	font-size: 0.98rem;
+	font-weight: 600;
+	color: var(--pf-ink);
+	cursor: pointer;
+	}
+
+	.mobile-dropdown-toggle__label {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	}
+
+	.mobile-dropdown-chevron {
+	transition: transform 0.25s var(--pf-ease);
+	}
+
+	.mobile-dropdown-chevron.rotated {
+	transform: rotate(180deg);
+	}
+
+	.mobile-submenu {
+	list-style: none;
+	margin: 0;
 	padding: 0;
-  }
-  
-  .mobile-submenu {
-	padding-left: 1rem;
-	margin-top: 0.5rem;
-  }
-  
-  .mobile-submenu li {
-	margin-bottom: 0.5rem;
-  }
-  
-  /* Responsive Fix */
-  @media (min-width: 992px) {
-	.menu-toggle {
-	  display: none;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s var(--pf-ease), padding 0.3s var(--pf-ease);
 	}
-  
+
+	.mobile-submenu.open {
+	max-height: 320px;
+	padding: 2px 0 14px;
+	}
+
+	.mobile-submenu li a {
+	display: block;
+	padding: 9px 4px 9px 30px;
+	font-size: 0.9rem;
+	font-weight: 500;
+	color: var(--pf-ink-soft);
+	text-decoration: none;
+	border-radius: 8px;
+	}
+
+	.mobile-submenu li a:hover,
+	.mobile-submenu li a.is-active {
+	color: var(--pf-green-dark);
+	background: rgba(14, 122, 84, 0.08);
+	}
+
+	/* ================= ACCESSIBILITY ================= */
+	.pf-navbar a:focus-visible,
+	.pf-navbar button:focus-visible {
+	outline: 3px solid var(--pf-gold);
+	outline-offset: 2px;
+	border-radius: 6px;
+	}
+
+	/* ================= RESPONSIVE ================= */
+	@media (min-width: 992px) {
+	.mobile-nav,
+	.pf-nav-backdrop {
+		display: none;
+	}
+	}
+
+	@media (max-width: 575px) {
+	.main-header {
+		padding: 12px 5%;
+	}
+
+	.navbar-logo img {
+		width: 64px;
+		height: 42px;
+	}
+
 	.mobile-nav {
-	  display: none;
+		width: 100%;
 	}
-  }
-  
+	}
+
+
+	

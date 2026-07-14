@@ -1,334 +1,679 @@
-.service-area {
-    background: #f8fcff;
-  }
-  
-  /* line 3, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat {
-    background: #ffffff;
-    border-radius: 6px;
-    padding: 85px 22px;
-    -webkit-transition: 0.4s;
-    -moz-transition: 0.4s;
-    -o-transition: 0.4s;
-    transition: 0.4s;
-    position: relative;
-    z-index: 1;
-  }
-  
-  @media (max-width: 575px) {
-    /* line 3, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-    .service-area .single-cat {
-      padding: 50px 22px;
-    }
-  }
-  
-  /* line 13, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 0;
-    background: #09cc7f;
-    transition: .6s;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    border-radius: 6px;
-  }
-  
-  /* line 26, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat .cat-icon span {
-    margin-bottom: 50px;
-    width: 90px;
-    height: 90px;
-    background: #09cc7f;
-    line-height: 90px;
-    text-align: center;
-    border-radius: 50%;
-    display: inline-block;
-    font-size: 40px;
-    color: #fff;
-  }
-  
-  /* line 41, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat .cat-cap h5 > a {
-    font-size: 25px;
-    font-weight: 700;
-    margin-bottom: 21px;
-    display: block;
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -o-transition: 0.2s;
-    transition: 0.2s;
-    font-family: "Muli", sans-serif;
-  }
-  
-  @media only screen and (min-width: 576px) and (max-width: 767px) {
-    /* line 41, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-    .service-area .single-cat .cat-cap h5 > a {
-      font-size: 26px;
-    }
-  }
-  
-  @media (max-width: 575px) {
-    /* line 41, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-    .service-area .single-cat .cat-cap h5 > a {
-      font-size: 26px;
-    }
-  }
-  
-  /* line 56, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat .cat-cap p {
-    margin-bottom: 36px;
-    color: #57667e;
-    font-size: 16px;
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -o-transition: 0.2s;
-    transition: 0.2s;
-  }
-  
-  @media only screen and (min-width: 576px) and (max-width: 767px) {
-    /* line 56, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-    .service-area .single-cat .cat-cap p {
-      font-size: 15px;
-    }
-  }
-  
-  /* line 66, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat .cat-cap a {
-    color: #1c165c;
-    font-size: 16px;
-    font-weight: 600;
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -o-transition: 0.2s;
-    transition: 0.2s;
-  }
-  
-  /* line 77, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat.active::before {
-    height: 100%;
-  }
-  
-  /* line 81, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat.active .cat-icon span {
-    color: #09cc7f;
-    background: #fff;
-  }
-  
-  /* line 87, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat.active .cat-cap h5 {
-    color: #fff;
-  }
-  
-  /* line 90, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat.active .cat-cap p {
-    color: #fff;
-  }
-  
-  /* line 93, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat.active .cat-cap a {
-    color: #fff;
-  }
-  
-  /* line 99, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat:hover::before {
-    height: 100%;
-  }
-  
-  /* line 103, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat:hover .cat-icon span {
-    color: #09cc7f;
-    background: #fff;
-  }
-  
-  /* line 109, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat:hover .cat-cap h5 {
-    color: #fff;
-  }
-  
-  /* line 112, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat:hover .cat-cap p {
-    color: #fff;
-  }
-  
-  /* line 115, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_services_section.scss */
-  .service-area .single-cat:hover .cat-cap a {
-    color: #fff;
-  }
+/* ==================================================================
+   Pratichi Foundation — About Us Page
+   Premium theme tokens (kept consistent with Home / Overview / Sainik
+   Overview / Facility / Pricing / Donation pages)
+   ================================================================== */
 
-  
+.pf-about {
+  --pf-forest: #1E4B43;
+  --pf-forest-dark: #123832;
+  --pf-forest-soft: #E4EDE9;
+  --pf-gold: #C9A227;
+  --pf-gold-soft: #F6EFD8;
+  --pf-blush: #C97B84;
+  --pf-blush-soft: #F6E7E7;
+  --pf-ivory: #FBF8F2;
+  --pf-sand: #EFE8D8;
+  --pf-ink: #23261F;
+  --pf-ink-soft: #5B5F55;
 
-  /*  */
-  .about-low-area {
-    position: relative;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--pf-ink);
+  background: var(--pf-ivory);
+  overflow-x: hidden;
+}
+
+.pf-about h1,
+.pf-about h2,
+.pf-about h3,
+.pf-about h4 {
+  font-family: 'Fraunces', serif;
+}
+
+/* Shared eyebrow / rule / heading utilities -------------------------- */
+.pf-about-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pf-gold);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.pf-about-eyebrow-dark { color: var(--pf-forest); }
+
+.pf-about-rule {
+  width: 64px;
+  height: 3px;
+  background: var(--pf-gold);
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+.pf-about-rule-center { margin-left: auto; margin-right: auto; }
+.pf-about-rule-gold { background: var(--pf-gold); }
+
+.pf-about-section-head { max-width: 640px; margin: 0 auto 48px; }
+
+.pf-about-h1 {
+  font-weight: 600;
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.pf-about-h2 {
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  color: var(--pf-forest-dark);
+  margin-bottom: 16px;
+}
+.pf-about-h2-light { color: #fff; }
+
+/* ==================================================================
+   Hero + Breadcrumb
+   ================================================================== */
+.pf-about-hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--pf-forest) 0%, var(--pf-forest-dark) 100%);
+  padding: 84px 0 108px;
+  overflow: hidden;
+  color: #fff;
+}
+.pf-about-hero::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -100px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.35), transparent 70%);
+}
+.pf-about-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -140px;
+  left: -80px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 123, 132, 0.28), transparent 70%);
+}
+
+.pf-about-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+}
+.pf-about-crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.pf-about-crumb:hover { color: #fff; }
+.pf-about-crumb-active { color: var(--pf-gold); font-weight: 600; }
+.pf-about-crumb-sep { color: rgba(255, 255, 255, 0.4); }
+
+.pf-about-wave {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 90px;
+  display: block;
+}
+
+/* ==================================================================
+   Existing: "What We Are Doing" service cards — restyled premium
+   ================================================================== */
+.pf-about .service-area {
+  background: var(--pf-ivory) !important;
+}
+.pf-about .section-tittle span {
+  color: var(--pf-gold);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.pf-about .section-tittle h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  color: var(--pf-forest-dark);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-top: 10px;
+}
+
+.pf-about .single-cat {
+  background: #fff !important;
+  border-radius: 18px !important;
+  padding: 52px 22px !important;
+  box-shadow: 0 10px 28px rgba(30, 40, 35, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.pf-about .single-cat::before {
+  background: var(--pf-forest) !important;
+  border-radius: 18px !important;
+}
+.pf-about .single-cat .cat-icon span,
+.pf-about .single-cat .cat-icon svg {
+  color: var(--pf-forest);
+}
+.pf-about .single-cat .cat-icon {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 26px;
+  border-radius: 50%;
+  background: var(--pf-forest-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s ease, background 0.35s ease;
+}
+.pf-about .single-cat:hover,
+.pf-about .single-cat.active:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 44px rgba(30, 40, 35, 0.14);
+}
+.pf-about .single-cat:hover .cat-icon,
+.pf-about .single-cat.active .cat-icon {
+  background: var(--pf-gold-soft);
+}
+.pf-about .single-cat:hover .cat-icon svg,
+.pf-about .single-cat.active .cat-icon svg {
+  color: #a8811c;
+}
+.pf-about .single-cat .cat-cap h5 > a {
+  font-family: 'Fraunces', serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--pf-forest-dark);
+  text-decoration: none;
+  line-height: 1.5;
+  transition: color 0.25s ease;
+}
+.pf-about .single-cat:hover .cat-cap h5 > a {
+  color: var(--pf-forest-dark);
+}
+.pf-about .single-cat.active {
+  background: #fff !important;
+}
+.pf-about .single-cat.active .cat-cap h5 > a { color: var(--pf-forest-dark) !important; }
+
+/* ==================================================================
+   Existing: "Who We Are" section — restyled premium
+   ================================================================== */
+.pf-about .about-section {
+  background: var(--pf-sand);
+}
+.pf-about .about-section .subtitle {
+  background: var(--pf-forest-soft) !important;
+  color: var(--pf-forest) !important;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.pf-about .about-section h2.display-5 {
+  font-family: 'Fraunces', serif;
+  color: var(--pf-forest-dark);
+}
+.pf-about .about-section .title-decoration {
+  width: 64px;
+  height: 3px;
+  background: var(--pf-gold);
+  border-radius: 2px;
+}
+
+.pf-about .about-image .main-image {
+  box-shadow: 0 24px 50px rgba(30, 40, 35, 0.16);
+  border: 6px solid #fff;
+}
+.pf-about .about-image .floating-accent-1 {
+  bottom: -2rem;
+  right: -2rem;
+  width: 8rem;
+  height: 8rem;
+  background: rgba(201, 162, 39, 0.14);
+  border-radius: 50%;
+  z-index: -1;
+}
+.pf-about .about-image .floating-accent-2 {
+  top: -1rem;
+  left: -1rem;
+  width: 5rem;
+  height: 5rem;
+  background: rgba(30, 75, 67, 0.08);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.pf-about .about-content .lead {
+  color: var(--pf-ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+.pf-about .feature-item .icon-bg {
+  width: 50px;
+  height: 50px;
+  background: var(--pf-forest-soft) !important;
+}
+.pf-about .feature-item .icon-bg span {
+  color: var(--pf-forest) !important;
+}
+.pf-about .feature-text h5 {
+  font-family: 'Fraunces', serif;
+  color: var(--pf-forest-dark);
+  font-size: 1.02rem;
+}
+.pf-about .feature-text p { color: var(--pf-ink-soft); }
+
+.pf-about .about-section .btn-primary {
+  background: var(--pf-gold) !important;
+  border-color: var(--pf-gold) !important;
+  color: var(--pf-forest-dark) !important;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.25);
+  transition: all 0.25s ease;
+}
+.pf-about .about-section .btn-primary:hover {
+  background: var(--pf-forest-dark) !important;
+  border-color: var(--pf-forest-dark) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+.pf-about .about-section .btn-outline-primary {
+  border-color: var(--pf-forest) !important;
+  color: var(--pf-forest) !important;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+.pf-about .about-section .btn-outline-primary:hover {
+  background: var(--pf-forest) !important;
+  border-color: var(--pf-forest) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+/* ==================================================================
+   New: Mission & Vision
+   ================================================================== */
+.pf-about-mv {
+  padding: 88px 0 20px;
+  background: var(--pf-ivory);
+}
+.pf-about-mv-card {
+  height: 100%;
+  background: #fff;
+  border-radius: 20px;
+  padding: 34px 30px;
+  box-shadow: 0 14px 32px rgba(30, 40, 35, 0.07);
+}
+.pf-about-mv-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.pf-about-tone-forest { background: var(--pf-forest-soft); color: var(--pf-forest); }
+.pf-about-tone-gold { background: var(--pf-gold-soft); color: #a8811c; }
+.pf-about-tone-blush { background: var(--pf-blush-soft); color: var(--pf-blush); }
+.pf-about-mv-card h3 {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--pf-forest-dark);
+  margin-bottom: 12px;
+}
+.pf-about-mv-card p {
+  color: var(--pf-ink-soft);
+  font-size: 0.96rem;
+  line-height: 1.75;
+  margin-bottom: 0;
+}
+
+/* ==================================================================
+   New: Core Values
+   ================================================================== */
+.pf-about-values {
+  padding: 88px 0;
+  background: var(--pf-ivory);
+}
+.pf-about-value-card {
+  height: 100%;
+  background: #fff;
+  border-radius: 18px;
+  padding: 28px 24px;
+  box-shadow: 0 10px 28px rgba(30, 40, 35, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pf-about-value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px rgba(30, 40, 35, 0.13);
+}
+.pf-about-value-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  transition: transform 0.3s ease;
+}
+.pf-about-value-card:hover .pf-about-value-icon { transform: rotate(-6deg) scale(1.06); }
+.pf-about-value-card.pf-about-tone-forest .pf-about-value-icon,
+.pf-about-value-card .pf-about-value-icon { background: var(--pf-forest-soft); color: var(--pf-forest); }
+.pf-about-value-card.pf-about-tone-gold .pf-about-value-icon { background: var(--pf-gold-soft); color: #a8811c; }
+.pf-about-value-card.pf-about-tone-blush .pf-about-value-icon { background: var(--pf-blush-soft); color: var(--pf-blush); }
+.pf-about-value-card h4 {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--pf-forest-dark);
+  margin-bottom: 10px;
+}
+.pf-about-value-card p {
+  color: var(--pf-ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+/* ==================================================================
+   New: Why Choose Us
+   ================================================================== */
+.pf-about-why {
+  padding: 96px 0;
+  background: linear-gradient(135deg, var(--pf-forest) 0%, var(--pf-forest-dark) 100%);
+  color: #fff;
+}
+.pf-about-why-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 26px 22px;
+  height: 100%;
+}
+.pf-about-why-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(201, 162, 39, 0.16);
+  color: var(--pf-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.pf-about-why-card h4 { font-size: 1.02rem; margin-bottom: 8px; }
+.pf-about-why-card p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ==================================================================
+   New: Impact Statistics
+   ================================================================== */
+.pf-about-stats {
+  padding: 64px 0;
+  background: var(--pf-forest-dark);
+  color: #fff;
+}
+.pf-about-stat-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  color: var(--pf-gold);
+}
+.pf-about-stat-label {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 6px;
+}
+
+/* ==================================================================
+   New: Final CTA
+   ================================================================== */
+.pf-about-cta {
+  padding: 90px 0;
+  background: var(--pf-sand);
+}
+.pf-about-cta h2 {
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--pf-forest-dark);
+  margin-bottom: 14px;
+}
+.pf-about-cta p {
+  color: var(--pf-ink-soft);
+  max-width: 520px;
+  margin: 0 auto 26px;
+}
+.pf-about-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.pf-about-btn-primary,
+.pf-about-btn-outline {
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 0.96rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.pf-about-btn-primary {
+  background: var(--pf-gold);
+  border: 1px solid var(--pf-gold);
+  color: var(--pf-forest-dark);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.25);
+}
+.pf-about-btn-primary:hover {
+  background: var(--pf-forest-dark);
+  border-color: var(--pf-forest-dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.pf-about-btn-outline {
+  background: transparent;
+  border: 1px solid var(--pf-forest);
+  color: var(--pf-forest);
+}
+.pf-about-btn-outline:hover {
+  background: var(--pf-forest);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ==================================================================
+   Responsive
+   ================================================================== */
+@media (max-width: 767px) {
+  .pf-about-hero { padding: 60px 0 88px; }
+  .pf-about-mv,
+  .pf-about-values,
+  .pf-about-why,
+  .pf-about-cta {
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
-  
-  /* line 5, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
+  .pf-about .single-cat { padding: 40px 18px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-about .single-cat,
+  .pf-about-value-card,
+  .pf-about-value-icon,
+  .pf-about-btn-primary,
+  .pf-about-btn-outline {
+    transition: none !important;
+  }
+}
+
+/* ==================================================================
+   Legacy rules preserved from the original stylesheet
+   (kept as-is; not used by the current About page markup, retained
+   in case other parts of the codebase still reference them)
+   ================================================================== */
+
+.about-low-area {
+  position: relative;
+}
+
+.about-low-area .about-caption p {
+  font-size: 16px;
+  color: #64676c;
+  line-height: 1.6;
+  margin-bottom: 43px;
+  padding-right: 50px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
   .about-low-area .about-caption p {
-    font-size: 16px;
-    color: #64676c;
-    line-height: 1.6;
-    margin-bottom: 43px;
-    padding-right: 50px;
+    padding-right: 20px;
   }
-  
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    /* line 5, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .about-low-area .about-caption p {
-      padding-right: 20px;
-    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .about-low-area .about-caption p {
+    padding-right: 0px;
   }
-  
-  @media only screen and (min-width: 576px) and (max-width: 767px) {
-    /* line 5, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .about-low-area .about-caption p {
-      padding-right: 0px;
-    }
+}
+
+@media (max-width: 575px) {
+  .about-low-area .about-caption p {
+    padding-right: 0px;
   }
-  
-  @media (max-width: 575px) {
-    /* line 5, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .about-low-area .about-caption p {
-      padding-right: 0px;
-    }
+}
+
+.about-low-area .single-caption {
+  display: flex;
+  align-items: center;
+}
+
+.about-low-area .single-caption .caption-icon span {
+  color: #212025;
+  font-size: 35px;
+  margin-bottom: 0;
+  display: block;
+}
+
+.about-low-area .single-caption .caption {
+  padding-left: 20px;
+}
+
+.about-low-area .single-caption .caption h5 {
+  color: #26264b;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.about-low-area .single-caption .caption p {
+  color: #7f8192;
+  font-size: 14px;
+  margin-bottom: 0px;
+  display: block;
+  line-height: 1.7;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .about-low-area .about-img {
+    padding-top: 50px;
   }
-  
-  /* line 22, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-  .about-low-area .single-caption {
-    display: flex;
-    align-items: center;
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .about-low-area .about-img {
+    padding-top: 50px;
   }
-  
-  /* line 25, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-  .about-low-area .single-caption .caption-icon span {
-    color: #212025;
-    font-size: 35px;
-    margin-bottom: 0;
-    display: block;
+}
+
+@media (max-width: 575px) {
+  .about-low-area .about-img {
+    padding-top: 50px;
   }
-  
-  /* line 31, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-  .about-low-area .single-caption .caption {
-    padding-left: 20px;
+}
+
+.about-low-area .about-img .about-font-img {
+  position: absolute;
+  z-index: 1;
+  left: 80px;
+  bottom: 0;
+}
+
+@media (max-width: 575px) {
+  .about-low-area .about-img .about-font-img img {
+    width: 100%;
   }
-  
-  /* line 33, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-  .about-low-area .single-caption .caption h5 {
-    color: #26264b;
-    font-size: 20px;
-    font-weight: 500;
+}
+
+.about-low-area .about-img .about-back-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+
+@media (max-width: 575px) {
+  .about-low-area .about-img .about-back-img img {
+    width: 90%;
   }
-  
-  /* line 38, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-  .about-low-area .single-caption .caption p {
-    color: #7f8192;
-    font-size: 14px;
-    margin-bottom: 0px;
-    display: block;
-    line-height: 1.7;
-  }
-  
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    /* line 50, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .about-low-area .about-img {
-      padding-top: 50px;
-    }
-  }
-  
-  @media only screen and (min-width: 576px) and (max-width: 767px) {
-    /* line 50, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .about-low-area .about-img {
-      padding-top: 50px;
-    }
-  }
-  
-  @media (max-width: 575px) {
-    /* line 50, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .about-low-area .about-img {
-      padding-top: 50px;
-    }
-  }
-  
-  /* line 60, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-  .about-low-area .about-img .about-font-img {
-    position: absolute;
-    z-index: 1;
-    left: 80px;
-    bottom: 0;
-  }
-  
-  @media (max-width: 575px) {
-    /* line 65, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .about-low-area .about-img .about-font-img img {
-      width: 100%;
-    }
-  }
-  
-  /* line 72, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   .about-low-area .about-img .about-back-img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 0;
+    position: unset;
   }
-  
-  @media (max-width: 575px) {
-    /* line 78, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .about-low-area .about-img .about-back-img img {
-      width: 90%;
-    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .about-low-area .about-img .about-back-img {
+    position: unset;
   }
-  
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    /* line 72, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .about-low-area .about-img .about-back-img {
-      position: unset;
-    }
+}
+
+@media (max-width: 575px) {
+  .about-low-area .about-img .about-back-img {
+    position: unset;
   }
-  
-  @media only screen and (min-width: 576px) and (max-width: 767px) {
-    /* line 72, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .about-low-area .about-img .about-back-img {
-      position: unset;
-    }
+}
+
+@media (max-width: 575px) {
+  .about-caption {
+    margin-bottom: 35px;
   }
-  
-  @media (max-width: 575px) {
-    /* line 72, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .about-low-area .about-img .about-back-img {
-      position: unset;
-    }
+}
+
+@media (max-width: 575px) {
+  .bg-height.pb-160 {
+    padding-bottom: 100px;
   }
-  
-  @media (max-width: 575px) {
-    /* line 96, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .about-caption {
-      margin-bottom: 35px;
-    }
-  }
-  
-  @media (max-width: 575px) {
-    /* line 103, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-    .bg-height.pb-160 {
-      padding-bottom: 100px;
-    }
-  }
-  
-  /* line 112, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-  .about-details .about-details-cap h4 {
-    font-size: 30px;
-    font-family: "Muli", sans-serif;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: #000a2d;
-    display: inline-block;
-  }
-  
-  /* line 120, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_about.scss */
-  .about-details .about-details-cap p {
-    color: #464d65;
-    font-size: 16px;
-  }
-  
+}
+
+.about-details .about-details-cap h4 {
+  font-size: 30px;
+  font-family: "Muli", sans-serif;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #000a2d;
+  display: inline-block;
+}
+
+.about-details .about-details-cap p {
+  color: #464d65;
+  font-size: 16px;
+}

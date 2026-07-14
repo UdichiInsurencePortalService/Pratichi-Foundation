@@ -2,11 +2,11 @@ import React, { useEffect, useState, useRef } from "react";
 import { Container, Row, Col, Form, Button, Card, Accordion } from "react-bootstrap";
 import { motion, useInView } from "framer-motion";
 import {
+  GraduationCap,
   HeartPulse,
   Utensils,
   Home as HomeIcon,
-  HeartHandshake,
-  Activity,
+  Award,
   ShieldCheck,
   BadgeCheck,
   Lock,
@@ -31,34 +31,34 @@ import qr from "../../../../assets/qr/qrs.png";
 
 const IMPACT_AREAS = [
   {
-    icon: HeartPulse,
+    icon: GraduationCap,
     tone: "forest",
-    title: "Health & Medical Support",
-    text: "Regular check-ups, medicines, and emergency care that keep our elders safe and healthy.",
+    title: "Education",
+    text: "Books, uniforms, and CBSE-aligned classrooms that keep children learning without interruption.",
+  },
+  {
+    icon: HeartPulse,
+    tone: "blush",
+    title: "Healthcare",
+    text: "Basic medical check-ups, hygiene kits, and awareness camps for students and their families.",
   },
   {
     icon: Utensils,
-    tone: "blush",
-    title: "Nutritious Meals",
-    text: "Wholesome, home-style meals served every day, tailored to the needs of ageing bodies.",
+    tone: "gold",
+    title: "Food & Nutrition",
+    text: "Wholesome daily meals that ensure no child has to choose between hunger and homework.",
   },
   {
     icon: HomeIcon,
-    tone: "gold",
-    title: "Safe & Comfortable Living",
-    text: "Clean, dignified living spaces designed for comfort, safety, and peace of mind.",
-  },
-  {
-    icon: HeartHandshake,
     tone: "forest",
-    title: "Emotional Care & Companionship",
-    text: "Caring companionship and daily attention that ease loneliness and restore a sense of belonging.",
+    title: "Shelter",
+    text: "Safe, dignified living and learning spaces for children who need them most.",
   },
   {
-    icon: Activity,
+    icon: Award,
     tone: "gold",
-    title: "Rehabilitation & Wellness",
-    text: "Physiotherapy, mobility support, and wellness programmes that help our elders stay active and independent.",
+    title: "Skill Development",
+    text: "Vocational and digital training that opens doors to real, lasting livelihoods.",
   },
 ];
 
@@ -76,7 +76,7 @@ const PROCESS_STEPS = [
   {
     icon: PackageCheck,
     title: "It's Delivered",
-    text: "Funds are converted into meals, medicines, and dedicated care at our senior living centre.",
+    text: "Funds are converted into meals, materials, and mentorship at our partner centres.",
   },
   {
     icon: Send,
@@ -86,10 +86,10 @@ const PROCESS_STEPS = [
 ];
 
 const AMOUNTS = [
-  { value: 500, label: "Provides meals for a week" },
-  { value: 1000, label: "Covers a month of medicines" },
-  { value: 2500, label: "Funds a health check-up camp" },
-  { value: 5000, label: "Sponsors a month of full care" },
+  { value: 500, label: "Feeds a child for 2 weeks" },
+  { value: 1000, label: "Supplies a month of books" },
+  { value: 2500, label: "Funds a skill workshop" },
+  { value: 5000, label: "Sponsors a term's tuition" },
 ];
 
 const TRUST_BADGES = [
@@ -106,11 +106,11 @@ const WHY_US = [
   },
   {
     title: "On-Ground Impact",
-    text: "We work directly at our senior care centre, not through layers of intermediaries.",
+    text: "We work directly with schools and communities, not through layers of intermediaries.",
   },
   {
     title: "Verified & Trusted",
-    text: "A registered NGO with a proven, on-ground track record of caring for senior citizens.",
+    text: "Recognized under Skill India and NSDC-aligned initiatives with a proven track record.",
   },
   {
     title: "Direct Reach",
@@ -119,8 +119,8 @@ const WHY_US = [
 ];
 
 const STATS = [
-  { value: 850, suffix: "+", label: "Senior Citizens Supported" },
-  { value: 24, suffix: "", label: "Care Volunteers" },
+  { value: 3200, suffix: "+", label: "Children Supported" },
+  { value: 48, suffix: "", label: "Partner Schools" },
   { value: 96000, suffix: "+", label: "Meals Served" },
   { value: 7, suffix: "", label: "Years of Service" },
 ];
@@ -128,9 +128,9 @@ const STATS = [
 const TESTIMONIALS = [
   {
     quote:
-      "Since moving here, I have three meals a day, my medicines on time, and people who genuinely check in on me. For the first time in years, I feel cared for.",
-    name: "Resident, Senior Living Centre",
-    role: "Pratichi Foundation Old Age Home",
+      "Because of the support I received, I could finish school and start a vocational course. My family is proud, and I finally feel hopeful about my future.",
+    name: "Beneficiary Student",
+    role: "Sainik School Programme",
   },
   {
     quote:
@@ -140,9 +140,9 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "My mother is looked after with so much patience and warmth here. Knowing she is safe and never alone gives our whole family peace of mind.",
-    name: "Family Member of a Resident",
-    role: "Delhi NCR",
+      "Pratichi Foundation's ground team is genuinely present in the community. It's rare to see this level of on-site commitment.",
+    name: "Partner Educator",
+    role: "Government School Liaison",
   },
 ];
 
@@ -165,7 +165,7 @@ const FAQS = [
   },
   {
     q: "Will I receive an update on how my donation helped?",
-    a: "Yes. Donors receive periodic updates showcasing the on-ground impact of contributions, including stories and progress from our senior care centre.",
+    a: "Yes. Donors receive periodic updates showcasing the on-ground impact of contributions, including stories and progress from our partner schools.",
   },
 ];
 
@@ -213,7 +213,7 @@ function CountUp({ value, suffix = "", duration = 1.6 }) {
 /* Main component                                                      */
 /* ------------------------------------------------------------------ */
 
-const Donation = () => {
+const Donations = () => {
   const [selectedAmount, setSelectedAmount] = useState(1000);
   const [customAmount, setCustomAmount] = useState("");
 
@@ -256,12 +256,12 @@ const Donation = () => {
                   <Sparkles size={14} /> Pratichi Foundation
                 </span>
                 <h1 className="pf-d-h1">
-                  Give Our Elders <span>the Care They Deserve</span>
+                  Every Rupee Rewrites <span>a Child's Story</span>
                 </h1>
                 <div className="pf-d-rule" />
                 <p className="pf-d-lead">
-                  Behind every donation is a warm meal, timely medicine, and a caring hand to hold. Your support today
-                  gives a senior citizen safety, dignity, and a life free of loneliness.
+                  Behind every donation is a real classroom, a real meal, a real chance. Your support today gives a
+                  child the opportunity to learn, grow, and lead tomorrow with confidence and dignity.
                 </p>
                 <div className="pf-d-hero-cta">
                   <Button className="pf-d-btn-primary" onClick={scrollToDonate}>
@@ -306,11 +306,11 @@ const Donation = () => {
             <Col lg={5} className="mb-4 mb-lg-0">
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={fadeUp}>
                 <span className="pf-d-eyebrow pf-d-eyebrow-dark">Why It Matters</span>
-                <h2 className="pf-d-h2">The Golden Years Deserve Golden Care</h2>
+                <h2 className="pf-d-h2">A Small Gift Can Redraw a Future</h2>
                 <div className="pf-d-rule" />
                 <p className="pf-d-body-text">
-                  For many elders in our care, the gap between neglect and dignity is often just a meal, a medicine,
-                  or a companion away. Your donation closes that gap — directly, quickly, and visibly.
+                  For many children we serve, the gap between opportunity and neglect is often just a meal, a
+                  textbook, or a mentor away. Your donation closes that gap — directly, quickly, and visibly.
                 </p>
               </motion.div>
             </Col>
@@ -318,7 +318,7 @@ const Donation = () => {
               <Row className="g-3">
                 {[
                   { icon: HeartPulse, title: "Immediate Relief", text: "Funds are put to use within weeks of your donation, not years." },
-                  { icon: Users, title: "Family, Reimagined", text: "We work hand-in-hand with families and volunteers so no elder ever feels forgotten." },
+                  { icon: Users, title: "Community First", text: "We work hand-in-hand with local schools and families for lasting change." },
                   { icon: ShieldCheck, title: "Verified Impact", text: "Every programme is monitored and reported on transparently." },
                 ].map((r, i) => {
                   const Icon = r.icon;
@@ -405,7 +405,7 @@ const Donation = () => {
             className="text-center pf-d-section-head"
           >
             <span className="pf-d-eyebrow">How Your Donation Helps</span>
-            <h2 className="pf-d-h2 pf-d-h2-light">From Your Pocket to Their Comfort</h2>
+            <h2 className="pf-d-h2 pf-d-h2-light">From Your Pocket to Their Progress</h2>
             <div className="pf-d-rule pf-d-rule-center pf-d-rule-gold" />
           </motion.div>
 
@@ -498,7 +498,7 @@ const Donation = () => {
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={fadeUp}>
                 <Card className="pf-d-panel text-center h-100">
                   <div className="pf-d-panel-badge">
-                    <ScanLine size={16} /> Scan to Donate
+                    <ScanLine size={20} /> Scan to Donate
                   </div>
                   <h4 className="pf-d-panel-title">Instant UPI Donation</h4>
                   <div className="pf-d-qr-frame">
@@ -694,7 +694,7 @@ const Donation = () => {
         <Container className="text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={fadeUp}>
             <h2>Your Support Can Start Right Now</h2>
-            <p>Join a growing community of donors giving senior citizens the food, care, and dignity they deserve.</p>
+            <p>Join a growing community of donors giving children the tools to build brighter futures.</p>
             <Button className="pf-d-btn-primary" onClick={scrollToDonate}>
               Donate Now <ArrowRight size={17} />
             </Button>
@@ -1219,4 +1219,4 @@ const Donation = () => {
   );
 };
 
-export default Donation;
+export default Donations;

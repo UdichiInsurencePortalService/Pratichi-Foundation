@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col, Button, Badge, Card } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import home from "../../../assets/Home-image/olds.png";
@@ -8,374 +8,297 @@ import homebanner from "../../../assets/Home-image/olld.png";
 import sanik from "../../../assets/Home-image/pathshaala-1.jpg";
 import { Link } from "react-router";
 
-import { Shield, BookOpen, Award, Users, Flag } from 'lucide-react';
+import {
+  Shield,
+  BookOpen,
+  Award,
+  Users,
+  Heart,
+  Home as HomeIcon,
+  GraduationCap,
+  Leaf,
+} from "lucide-react";
 
-import './Home.css'
+import "./Home.css";
+
+/* A soft horizon-line divider used between sections. It reads as a gentle
+   path/curve, echoing the Foundation's idea of guiding people forward. */
+const SectionDivider = ({ flip = false, tone = "light" }) => (
+  <div className={`pf-divider ${flip ? "pf-divider--flip" : ""}`} aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" className={`pf-divider__svg pf-divider__svg--${tone}`}>
+      <path d="M0,32 C240,90 480,0 720,28 C960,56 1200,10 1440,40 L1440,90 L0,90 Z" />
+    </svg>
+  </div>
+);
+
+const focusAreas = [
+  { icon: GraduationCap, label: "Education & Literacy" },
+  { icon: Heart, label: "Senior Citizen Welfare" },
+  { icon: Users, label: "Women Empowerment" },
+  { icon: Leaf, label: "Environmental Sustainability" },
+  { icon: Shield, label: "Sainik School Education" },
+];
+
+const anandaKananFeatures = [
+  "Comfortable, well-equipped living spaces designed for safety and ease",
+  "24/7 medical support and attentive caregiving",
+  "Engaging recreational and cultural activities",
+  "A community where laughter, stories, and love are shared freely",
+  "Beautiful Gardens",
+];
+
+const sainikFeatures = [
+  "CBSE-affiliated academic curriculum",
+  "Military training & discipline",
+  "State-of-the-art sports facilities",
+  "Leadership development programs",
+  "NCC training",
+  "Defense services preparation",
+];
+
+const anandaKananCards = [
+  { icon: Heart, title: "Personalized Care", text: "Tailored to individual needs" },
+  { icon: HomeIcon, title: "Homely Environment", text: "Comfort in every corner" },
+];
+
+const sainikCards = [
+  { icon: Shield, title: "Military Training", text: "Discipline & tactical skills", accent: "gold" },
+  { icon: BookOpen, title: "Academic Excellence", text: "Top-tier education", accent: "green" },
+  { icon: Users, title: "Character Building", text: "Values & leadership", accent: "teal" },
+  { icon: Award, title: "Sports & Fitness", text: "Physical excellence", accent: "gold" },
+];
 
 const Home = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 900,
+      easing: "ease-out-cubic",
       once: false,
       mirror: true,
     });
   }, []);
+
   return (
-    <>
-      <div className="slider-area py-5">
-        <div className="slider-active">
-          <div className="single-slider slider-height d-flex align-items-center">
-            <Container>
-              <Row className="align-items-center">
-                {/* Left side content - centered with proper padding */}
-                <Col xl={6} lg={6} md={12} className="mb-4 mb-lg-0">
-                  <div
-                    className="hero__caption text-center text-lg-start px-3 px-md-4 py-4"
-                    data-aos="fade-right"
-                  >
-                    <h2
-                      className="mb-4"
-                      data-aos="fade-up"
-                      data-aos-delay="200"
-                    >
-                      Pratichi Foundation Empowering Lives, Enriching Futures
-                    </h2>
-                    <p className="my-4" data-aos="fade-up" data-aos-delay="400">
-                      Pratichi Foundation is a dynamic NGO committed to building
-                      a more just, inclusive, and empowered society. With a
-                      strong grassroots presence, we work across diverse
-                      sectors—education and literacy, poverty alleviation,
-                      minority rehabilitation, senior citizen welfare, women
-                      entrepreneurship, environmental sustainability, and
-                      support for Sainik School education. Driven by compassion
-                      and guided by equity, we focus on creating long-term,
-                      sustainable change. From nurturing young minds in
-                      underprivileged communities to empowering women with
-                      entrepreneurial skills, supporting the elderly with
-                      dignity, and addressing the global climate crisis—Pratichi
-                      believes in action that transforms lives. Every initiative
-                      we undertake is a step toward a brighter, more resilient
-                      tomorrow.
-                    </p>
-                    <div className="hero__btn d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
-                    <Link to='/donation'>
-                      <button
-                        href="/donate"
-                        className="old-button hero-btn px-4 py-2 fw-bold"
-                        data-aos="fade-up"
-                        data-aos-delay="600"
-                        style={{backgroundColor:'#09cc7f',border:'1px solid #09cc7f'}}
-                      >
-                        Donate
-                      </button>
-                      </Link>
-                    </div>
-                  </div>
-                </Col>
+    <div className="pf-page">
+      {/* ================= HERO ================= */}
+      <section className="pf-hero">
+        <Container>
+          <Row className="align-items-center gy-5">
+            <Col xl={6} lg={6} md={12}>
+              <div className="pf-hero__content" data-aos="fade-right">
+                <span className="pf-eyebrow" data-aos="fade-up" data-aos-delay="100">
+                  Pratichi Foundation
+                </span>
+                <h1 className="pf-hero__title" data-aos="fade-up" data-aos-delay="200">
+                  Empowering Lives, <br className="d-none d-lg-block" />
+                  Enriching Futures
+                </h1>
+                <p className="pf-hero__text" data-aos="fade-up" data-aos-delay="300">
+                  Pratichi Foundation is a dynamic NGO committed to building a
+                  more just, inclusive, and empowered society. With a strong
+                  grassroots presence, we work across diverse sectors—education
+                  and literacy, poverty alleviation, minority rehabilitation,
+                  senior citizen welfare, women entrepreneurship, environmental
+                  sustainability, and support for Sainik School education.
+                  Driven by compassion and guided by equity, we focus on
+                  creating long-term, sustainable change. From nurturing young
+                  minds in underprivileged communities to empowering women with
+                  entrepreneurial skills, supporting the elderly with dignity,
+                  and addressing the global climate crisis—Pratichi believes in
+                  action that transforms lives. Every initiative we undertake
+                  is a step toward a brighter, more resilient tomorrow.
+                </p>
 
-                {/* Right side image */}
-                <Col
-                  xl={6}
-                  lg={6}
-                  md={12}
-                  className="d-flex justify-content-center"
-                >
-                  <div
-                    className="hero-image-wrapper"
-                    data-aos="fade-left"
-                    data-aos-delay="400"
-                  >
-                    <img
-                      src={home}
-                      alt="Elderly care at Pratichi Foundation"
-                      className="img-fluid "
-                    />
-                  </div>
-                </Col>
-              </Row>
-            </Container>
-          </div>
-        </div>
-      </div>
+                <ul className="pf-focus-strip" data-aos="fade-up" data-aos-delay="400">
+                  {focusAreas.map(({ icon: Icon, label }) => (
+                    <li className="pf-focus-strip__item" key={label}>
+                      <span className="pf-focus-strip__icon">
+                        <Icon size={16} strokeWidth={2} />
+                      </span>
+                      {label}
+                    </li>
+                  ))}
+                </ul>
 
-      {/* old age home */}
+                <div className="pf-hero__actions" data-aos="fade-up" data-aos-delay="500">
+                  <Link to="/donation" className="pf-btn pf-btn--primary">
+                    Donate Now
+                  </Link>
+                  <Link to="/contact" className="pf-btn pf-btn--ghost">
+                    Get in Touch
+                  </Link>
+                </div>
+              </div>
+            </Col>
 
-      <Container className="py-5">
-        <Card className="border-0 shadow-lg my-5 overflow-hidden">
-          {/* Header Banner */}
-          <div className=" text-white p-4 p-md-5" style={{backgroundColor:'#09cc7f'}}>
-            <h2 className="display-5 fw-bold">🏠 Ananda Kanan</h2>
-            <p className="lead mb-0 text-black fw-bold">
+            <Col xl={6} lg={6} md={12}>
+              <div className="pf-hero__visual" data-aos="fade-left" data-aos-delay="200">
+                <div className="pf-image-frame pf-image-frame--hero">
+                  <img src={home} alt="Elderly care at Pratichi Foundation" />
+                </div>
+                <span className="pf-hero__caption">
+                  Care and dignity, delivered at the grassroots
+                </span>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+        <SectionDivider tone="light" />
+      </section>
+
+      {/* ================= ANANDA KANAN ================= */}
+      <section className="pf-section pf-section--care">
+        <Container>
+          <div className="pf-section-banner pf-section-banner--care" data-aos="fade-up">
+            <span className="pf-section-banner__eyebrow">Old Age Home</span>
+            <h2 className="pf-section-banner__title">Ananda Kanan</h2>
+            <p className="pf-section-banner__subtitle">
               Where Every Sunset Glows with Peace and Dignity
             </p>
           </div>
 
-          <Card.Body className="p-4 p-md-5">
-            <Row className="g-4">
-              {/* Left Content Column */}
-              <Col lg={6} className="mb-4 mb-lg-0">
-                <h3 className=" mb-4" style={{Color:'#09cc7f'}}>
-                  Welcome to Ananda Kanan,
-                </h3>
-
-                <p className="mb-4">
-                  At Ananda Kanan, each day begins with gentle smiles,
-                  nurturing care, and the quiet assurance that our residents are
-                  cherished. Our holistic approach ensures physical well-being,
-                  emotional comfort, and mental stimulation through personalized
-                  care, cultural engagement, and companionship.
-                </p>
-
-                {/* Testimonial Box */}
-
-                <p>
-                  Our community offers a perfect balance of independence and
-                  support, allowing residents to enjoy life to the fullest while
-                  receiving the assistance they need.
-                </p>
-
-                {/* Feature Badges */}
-                <h5 className="mt-4 mb-3">Our Comprehensive Services:</h5>
-                <div className="d-flex flex-wrap gap-2 mb-4">
-                  <badge  className="p-2 px-3 rounded-pill" >
-                    Comfortable, well-equipped living spaces designed for safety
-                    and ease
-                  </badge>
-                  <badge className="p-2 px-3 rounded-pill">
-                    24/7 medical support and attentive caregiving
-                  </badge>
-                  <badge  className="p-2 px-3 rounded-pill" >
-                    Engaging recreational and cultural activities
-                  </badge>
-                  <badge  className="p-2 px-3 rounded-pill">
-                    A community where laughter, stories, and love are shared
-                    freely
-                  </badge>
-                  <badge  className="p-2 px-3 rounded-pill">
-                    Beautiful Gardens
-                  </badge>
-                </div>
-
-<Link as={Link} to='/contact'>
-                <button
-                  size="lg"
-                  className=" old-button rounded-pill px-4 mt-3 shadow-sm fw-bold"
-                  style={{backgroundColor:"#09cc7f",padding:'10px',border:'1px solid #09cc7f'}}
-                >
-                  Schedule a Call
-                </button>
-                </Link>
-              </Col>
-
-              {/* Right Image Column */}
-              <Col lg={6}>
-                <div className="position-relative h-100">
-                  <div className="overflow-hidden ">
-                    <img
-                      src={homebanner}
-                      alt="Seniors enjoying community activities"
-                      className="img-fluid w-100 h-100 object-fit-cover"
-                      style={{
-                        objectPosition: "center",
-                        transition: "transform 0.5s ease",
-                      }}
-                      onMouseOver={(e) =>
-                        (e.currentTarget.style.transform = "scale(1.03)")
-                      }
-                      onMouseOut={(e) =>
-                        (e.currentTarget.style.transform = "scale(1)")
-                      }
-                    />
-                  </div>
-
-                  {/* Floating Feature Cards */}
-                  <Row className="g-3 mt-4">
-                    <Col sm={6}>
-                      <Card className="h-100 shadow-sm border-0">
-                        <Card.Body className="d-flex align-items-center p-3">
-                          <div className="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
-                            <i className="bi bi-heart-pulse text-primary fs-4"></i>
-                          </div>
-                          <div>
-                            <h6 className="mb-1">Personalized Care</h6>
-                            <p className="mb-0 small text-muted">
-                              Tailored to individual needs
-                            </p>
-                          </div>
-                        </Card.Body>
-                      </Card>
-                    </Col>
-                    <Col sm={6}>
-                      <Card className="h-100 shadow-sm border-0">
-                        <Card.Body className="d-flex align-items-center p-3">
-                          <div className="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
-                            <i className="bi bi-house-heart text-primary fs-4"></i>
-                          </div>
-                          <div>
-                            <h6 className="mb-1">Homely Environment</h6>
-                            <p className="mb-0 small text-muted">
-                              Comfort in every corner
-                            </p>
-                          </div>
-                        </Card.Body>
-                      </Card>
-                    </Col>
-                  </Row>
-                </div>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
-      </Container>
-
-
-      {/* sanik school session  */}
-
-
-      <Container className="py-5">
-      <Card className="border-0 shadow-lg my-5 overflow-hidden">
-        {/* Header Banner with Military-inspired design */}
-        <div className="text-white p-4 p-md-5" style={{ backgroundColor: '#09cc7f' }}>
-          <h2 className="display-5 fw-bold">🎖️ Sainik School Excellence</h2>
-          <p className="lead mb-0 fw-bold text-black">
-            Molding Tomorrow's Leaders with Discipline and Knowledge
-          </p>
-        </div>
-
-        <Card.Body className="p-4 p-md-5">
-          <Row className="g-4">
-            {/* Left Content Column */}
-            <Col lg={6} className="mb-4 mb-lg-0">
-              <h3 className="mb-4 text-black fw-bold">
-                Welcome to Sainik School,
-              </h3>
-
-              <p className="mb-4">
-              The Pratichi Foundation is dedicated to improving educational opportunities for children in need. We are reaching out for your support to help us provide essential resources to schools that are facing significant challenges. Your donation will directly contribute to: Learning materials and supplies Infrastructure improvements Teacher training and development. Together, we can make a meaningful impact on the lives of students and empower future generations. Please consider making a donation today!
+          <Row className="g-5 align-items-center pf-section__body">
+            <Col lg={6} data-aos="fade-right">
+              <h3 className="pf-block-title">Welcome to Ananda Kanan</h3>
+              <p className="pf-body-text">
+                At Ananda Kanan, each day begins with gentle smiles, nurturing
+                care, and the quiet assurance that our residents are cherished.
+                Our holistic approach ensures physical well-being, emotional
+                comfort, and mental stimulation through personalized care,
+                cultural engagement, and companionship.
+              </p>
+              <p className="pf-body-text">
+                Our community offers a perfect balance of independence and
+                support, allowing residents to enjoy life to the fullest while
+                receiving the assistance they need.
               </p>
 
-             
-              
-
-              {/* Feature Badges */}
-              <h5 className="mt-4 mb-3">Our Educational Excellence:</h5>
-              <div className="d-flex flex-wrap gap-2 mb-4">
-                {[
-                  "CBSE-affiliated academic curriculum",
-                  "Military training & discipline",
-                  "State-of-the-art sports facilities",
-                  "Leadership development programs",
-                  "NCC training",
-                  "Defense services preparation"
-                ].map((feature, index) => (
-                  <badge 
-                    key={index} 
-                    className="p-2 px-3 rounded-pill mb-2 fw-bold" 
-                  >
+              <h5 className="pf-chip-heading">Our Comprehensive Services</h5>
+              <div className="pf-chip-group">
+                {anandaKananFeatures.map((feature) => (
+                  <span className="pf-chip" key={feature}>
                     {feature}
-                  </badge>
+                  </span>
                 ))}
               </div>
-<Link to='/contact'>
-              <Button
-                size="lg"
-                className="rounded-pill px-4 mt-3 shadow-sm fw-bold "
-                style={{backgroundColor:'#09cc7f',border:'1px solid #09cc7f',color:'black',fontWeight:600}}
-              >
+
+              <Link to="/contact" className="pf-btn pf-btn--primary pf-btn--lg">
                 Schedule a Call
-              </Button>
               </Link>
             </Col>
 
-            {/* Right Image Column */}
-            <Col lg={6}>
-              <div className="position-relative h-100">
-              <div className="overflow-hidden">
-  <div 
-    className="img-fluid w-100"
-    style={{
-      height: '300px',
-      backgroundImage: `url(${sanik})`,
-      backgroundSize: 'contain',
-      backgroundPosition: 'center',
-      transition: 'transform 0.5s ease',
-    }}
-  />
-</div>
-
-                {/* Floating Feature Cards */}
-                <Row className="g-3 mt-4">
-                  <Col sm={6}>
-                    <Card className="h-100 shadow-sm border-0">
-                      <Card.Body className="d-flex align-items-center p-3">
-                        <div className="bg-warning bg-opacity-10 p-3 rounded-circle me-3">
-                          <Shield className="text-warning" size={24} />
-                        </div>
-                        <div>
-                          <h6 className="mb-1">Military Training</h6>
-                          <p className="mb-0 small text-muted">
-                            Discipline & tactical skills
-                          </p>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                  <Col sm={6}>
-                    <Card className="h-100 shadow-sm border-0">
-                      <Card.Body className="d-flex align-items-center p-3">
-                        <div className="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
-                          <BookOpen className="text-primary" size={24} />
-                        </div>
-                        <div>
-                          <h6 className="mb-1">Academic Excellence</h6>
-                          <p className="mb-0 small text-muted">
-                            Top-tier education
-                          </p>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                  <Col sm={6} className="mt-3">
-                    <Card className="h-100 shadow-sm border-0">
-                      <Card.Body className="d-flex align-items-center p-3">
-                        <div className="bg-success bg-opacity-10 p-3 rounded-circle me-3">
-                          <Users className="text-success" size={24} />
-                        </div>
-                        <div>
-                          <h6 className="mb-1">Character Building</h6>
-                          <p className="mb-0 small text-muted">
-                            Values & leadership
-                          </p>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                  <Col sm={6} className="mt-3">
-                    <Card className="h-100 shadow-sm border-0">
-                      <Card.Body className="d-flex align-items-center p-3">
-                        <div className="bg-danger bg-opacity-10 p-3 rounded-circle me-3">
-                          <Award className="text-danger" size={24} />
-                        </div>
-                        <div>
-                          <h6 className="mb-1">Sports & Fitness</h6>
-                          <p className="mb-0 small text-muted">
-                            Physical excellence
-                          </p>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                </Row>
+            <Col lg={6} data-aos="fade-left">
+              <div className="pf-image-frame pf-image-frame--wide">
+                <img src={homebanner} alt="Seniors enjoying community activities" />
               </div>
+
+              <Row className="g-3 pf-floating-row">
+                {anandaKananCards.map(({ icon: Icon, title, text }, i) => (
+                  <Col sm={6} key={title} data-aos="zoom-in" data-aos-delay={i * 100}>
+                    <div className="pf-floating-card">
+                      <span className="pf-floating-card__icon pf-floating-card__icon--green">
+                        <Icon size={22} strokeWidth={2} />
+                      </span>
+                      <div>
+                        <h6>{title}</h6>
+                        <p>{text}</p>
+                      </div>
+                    </div>
+                  </Col>
+                ))}
+              </Row>
             </Col>
           </Row>
-          
-          {/* Statistics Row */}
-          
-        </Card.Body>
-      </Card>
-    </Container>
-    </>
+        </Container>
+        <SectionDivider tone="care" />
+      </section>
+
+      {/* ================= SAINIK SCHOOL ================= */}
+      <section className="pf-section pf-section--academy">
+        <Container>
+          <div className="pf-section-banner pf-section-banner--academy" data-aos="fade-up">
+            <span className="pf-section-banner__eyebrow">Sainik School</span>
+            <h2 className="pf-section-banner__title">Sainik School Excellence</h2>
+            <p className="pf-section-banner__subtitle">
+              Molding Tomorrow's Leaders with Discipline and Knowledge
+            </p>
+          </div>
+
+          <Row className="g-5 align-items-center pf-section__body">
+            <Col lg={6} data-aos="fade-right">
+              <h3 className="pf-block-title">Welcome to Sainik School</h3>
+              <p className="pf-body-text">
+                The Pratichi Foundation is dedicated to improving educational
+                opportunities for children in need. We are reaching out for
+                your support to help us provide essential resources to schools
+                that are facing significant challenges. Your donation will
+                directly contribute to: learning materials and supplies,
+                infrastructure improvements, and teacher training and
+                development. Together, we can make a meaningful impact on the
+                lives of students and empower future generations. Please
+                consider making a donation today!
+              </p>
+
+              <h5 className="pf-chip-heading">Our Educational Excellence</h5>
+              <div className="pf-chip-group">
+                {sainikFeatures.map((feature) => (
+                  <span className="pf-chip pf-chip--dark" key={feature}>
+                    {feature}
+                  </span>
+                ))}
+              </div>
+
+              <Link to="/contact" className="pf-btn pf-btn--dark pf-btn--lg">
+                Schedule a Call
+              </Link>
+            </Col>
+
+            <Col lg={6} data-aos="fade-left">
+              <div className="pf-image-frame pf-image-frame--wide pf-image-frame--contain">
+                <img src={sanik} alt="Sainik School students" />
+              </div>
+
+              <Row className="g-3 pf-floating-row">
+                {sainikCards.map(({ icon: Icon, title, text, accent }, i) => (
+                  <Col sm={6} key={title} data-aos="zoom-in" data-aos-delay={i * 100}>
+                    <div className="pf-floating-card">
+                      <span className={`pf-floating-card__icon pf-floating-card__icon--${accent}`}>
+                        <Icon size={22} strokeWidth={2} />
+                      </span>
+                      <div>
+                        <h6>{title}</h6>
+                        <p>{text}</p>
+                      </div>
+                    </div>
+                  </Col>
+                ))}
+              </Row>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* ================= CLOSING CTA ================= */}
+      <section className="pf-cta-band">
+        <Container>
+          <div className="pf-cta-band__inner" data-aos="fade-up">
+            <h2>Every Contribution Creates Change</h2>
+            <p>
+              Whether it's a caring home for our elders or a strong education
+              for a child, your support turns intention into impact.
+            </p>
+            <div className="pf-cta-band__actions">
+              <Link to="/donation" className="pf-btn pf-btn--accent pf-btn--lg">
+                Donate Now
+              </Link>
+              <Link to="/contact" className="pf-btn pf-btn--outline pf-btn--lg">
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </div>
   );
 };
 

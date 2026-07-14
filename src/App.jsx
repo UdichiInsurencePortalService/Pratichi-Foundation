@@ -13,6 +13,7 @@ import Contact from './Header/ContactUs/Contact.jsx'
 import SanikFacilities from './Components/Pages/SanikSchool/Facilities/SanikFacilities.jsx'
 import SanikFee from './Components/Pages/SanikSchool/Fee/SanikFee.jsx'
 import SanikAchievement from './Components/Pages/SanikSchool/Achievement/SanikAchievement.jsx'
+import Donations from './Components/Pages/SanikSchool/Donation/Donations.jsx'
 
 const App = () => {
   return (
@@ -26,6 +27,8 @@ const App = () => {
         <Route path = '/facilites' element={<Facilites/>}/>
         <Route path = '/pricing' element={<Pricing/>}/>
         <Route path = '/donation' element={<Donation/>}/>
+
+        <Route path ='/donations' element={<Donations/>} />
 
         
         <Route path = '/SanikOverview' element={<SanikOverview/>}/>

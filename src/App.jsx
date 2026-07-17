@@ -14,6 +14,7 @@ import SanikFacilities from './Components/Pages/SanikSchool/Facilities/SanikFaci
 import SanikFee from './Components/Pages/SanikSchool/Fee/SanikFee.jsx'
 import SanikAchievement from './Components/Pages/SanikSchool/Achievement/SanikAchievement.jsx'
 import Donations from './Components/Pages/SanikSchool/Donation/Donations.jsx'
+import ScrollToTopButton from './Components/Pages/ScrollToTopButton/ScrollToTopButton.jsx'
 
 const App = () => {
   return (
@@ -47,6 +48,7 @@ const App = () => {
 
       </Routes>
       <Footer/>
+      <ScrollToTopButton />
     </>
  )
 }
